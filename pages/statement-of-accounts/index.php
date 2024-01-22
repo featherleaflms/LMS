@@ -141,8 +141,10 @@
     }
 
     function getClient() {
-        var optionSelected = $("#client_id").find('option:selected').attr('client_fullname');
-        $("#span_client").html(optionSelected.toUpperCase());
+        //var optionSelected = $("#client_id").find('option:selected').attr('client_fullname');
+        var id = $("#client_id").val();
+        var optionSelected = $("#client_id option[value="+id+"]").text();
+        $("#span_client").html(optionSelected);
     }
 
     $(document).ready(function() {

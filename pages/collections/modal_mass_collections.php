@@ -749,7 +749,7 @@
     }
 
     .w-8 {
-        width: 50px !important;
+        width: 8% !important;
     }
 
     .w-5 {

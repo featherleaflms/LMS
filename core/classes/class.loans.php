@@ -429,7 +429,7 @@ class Loans extends Connection
             $Collection = new Collections;
             $lt_row = $LoanTypes->view($loan_type_id);
 
-            $loandate = date('Y-m-d', strtotime('+' . $loan_period . ' month', strtotime($loan_date)));
+            $loandate = date('Y-m-d', strtotime('+' . $loan_period . ' month', strtotime($payment_date_start)));
             $col_checker_date = $Collection->late_collection_checker($row['loan_id'], $loandate);
 
             if ($col_checker_date != 0) {

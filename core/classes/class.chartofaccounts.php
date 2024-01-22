@@ -238,7 +238,7 @@ class ChartOfAccounts extends Connection
         return $row['chart_class_id'];
     }
 
-    public function chart_data($code, $to_replace = false)
+    public function chart_data($code, $to_replace = true)
     {
         $code = $to_replace ? strtoupper(str_replace(" - ", " ", $code)) : $code;
         $param = $to_replace ? "UCASE(REPLACE(chart_name,' - ',' ')) LIKE '%$code%'" : "chart_name like '%$code%'";

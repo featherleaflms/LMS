@@ -184,7 +184,7 @@
         $("#dt_entries").DataTable({
             "processing": true,
             "order": [
-                [2, 'desc']
+                [8, 'desc']
             ],
             "ajax": {
                 "url": "controllers/sql.php?c=" + route_settings.class_name + "&q=show",

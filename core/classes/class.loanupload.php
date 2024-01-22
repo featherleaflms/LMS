@@ -260,7 +260,7 @@ class LoanUploads extends Connection
             foreach ($loan_data as $clients) {
                 if ($clients['client_id'] > 0)
                     if ($this->save_client_loans($clients) == null)
-                        throw new Exception("Error");
+                        throw new Exception("save_upload: Error");
             }
             $this->commit();
             return 1;
@@ -302,10 +302,10 @@ class LoanUploads extends Connection
 
                 $loan_id = $this->insert($this->table, $form_loan, 'Y');
                 if ($loan_id < 1)
-                    throw new Exception($loan_id);
+                    throw new Exception("Insert Loan: ".$loan_id);
 
                 if ($this->save_loan_collections($client_id, $branch_id, $loan_id, $loan_data) == null)
-                    throw new Exception("Error");
+                    throw new Exception("Save Collection: Error");
 
                 $response[] = $loan_id;
             }
@@ -345,7 +345,7 @@ class LoanUploads extends Connection
                     );
                     $collection_id = $this->insert("tbl_collections", $form, "Y");
                     if ($collection_id < 1)
-                        throw new Exception($collection_id);
+                        throw new Exception("Form Collection: ".$collection_id." - ".json_encode($form));
 
                     if (strtoupper($collection_data['status']) == "RENEWAL") {
 
@@ -383,7 +383,7 @@ class LoanUploads extends Connection
                 }
                 $count_index++;
             }
-            return $response;
+            return count($response)>0?$response:1;//$response;
         } catch (Exception $e) {
             Logs::error("LoanUploads->save_loan_collections", "Loans Upload", $e->getMessage());
             return null;

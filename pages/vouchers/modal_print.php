@@ -141,11 +141,15 @@
                             <label>A/C No.: <span class="label-print" id="ac_no_label_print"></span></label>
                         </div>
 
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <i>Prepared by:</i><br><br>
                             <span style="text-decoration: underline;padding-left: 30px;">&emsp;<?= strtoupper($User->fullname($_SESSION['lms_user_id'])); ?>&emsp;</span>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
+                            <i>Checked by:</i><br><br>
+                            <span style="text-decoration: underline;padding-left: 30px;">&emsp;PRINCESS L. ARISCO&emsp;</span>
+                        </div>
+                        <div class="col-sm-4">
                             <i>Payment Approved:</i><br><br>
                                 <div style="text-align:center;">
                                     <span class="span_approved" style="text-decoration: underline;padding-left: 30px;">
@@ -176,7 +180,7 @@
 
                             <div style="text-align: right;padding-top: 100px;">
                                 <span style="text-decoration: overline;padding-left: 30px;">
-                                    &emsp;&emsp;&emsp;CREDITOR&emsp;&emsp;&emsp;
+                                    &emsp;&emsp;&emsp;RECEIVED BY&emsp;&emsp;&emsp;
                             </div>
                         </div>
 
